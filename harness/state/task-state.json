@@ -26,8 +26,9 @@
     "harness/templates/acceptance.md",
     "harness/logs/.gitkeep"
   ],
+  "last_progress_commit": "61fc7b5 harness: add milestone progress commit policy",
   "retry_count": 0,
   "next_step": "Select the first concrete product-shell task and create its acceptance checklist.",
   "progress_commit_policy": "Commit and push each meaningful verified milestone to origin.",
-  "updated_at": "2026-09-04T14:24:00+08:00"
+  "updated_at": "2026-09-04T14:19:47+08:00"
 }
