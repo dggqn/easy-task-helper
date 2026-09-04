@@ -27,5 +27,17 @@ Acceptance targets:
 
 ## Phase 1: Minimal Product Shell
 
-This phase is pending. It will define the smallest Electron/Python loop that
-can select a frontend Web project and display a governed task conversation.
+Goal: create a Chinese-first, dark industrial-style Electron desktop shell for
+selecting a frontend Web project and displaying a task conversation page.
+
+Acceptance targets:
+
+- The user can select a frontend Web project from placeholder data.
+- The user can enter the task conversation page for the selected project.
+- The selected project and placeholder task progress are visible on that page.
+- Type checks, unit tests, production build, and direct interaction checks
+  pass.
+- The user manually verifies and explicitly approves Phase 1 before Phase 2
+  begins.
+
+Implementation details and the task breakdown are in `phase-1-plan.md`.

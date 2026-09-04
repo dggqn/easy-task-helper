@@ -8,6 +8,7 @@ future product and must not be imported by application code.
 
 - Product: Electron desktop client plus Python AI development orchestration.
 - First supported project type: frontend Web pages.
+- Product stack: Electron, React, TypeScript, Python 3.12, and `uv`.
 - Planned context sources: vector knowledge base and example code.
 - Planned model provider: `agnes`; its API contract is intentionally deferred.
 
@@ -15,6 +16,9 @@ future product and must not be imported by application code.
 
 - The workspace root is `D:\\personal_jdx\\personal_code\\easy-task-helper`.
 - Read and write authority is limited to this workspace by default.
+- Local installation, configuration, test execution, and development-server
+  operations are allowed within this workspace. Do not delete the workspace
+  root directory.
 - Do not invent external API details, credentials, or product requirements.
 - Keep unrelated user changes intact.
 
@@ -30,6 +34,14 @@ future product and must not be imported by application code.
 6. Record result, changed files, commit, risks, and next step in the harness
    state/log.
 7. Stop when the acceptance target is met or a defined stop condition occurs.
+
+## Escalation Boundaries
+
+- Explain and wait before changing architecture, dependencies, persistent data
+  structures, or user flows.
+- Local implementation improvements that preserve those boundaries may proceed.
+- A phase is complete only after its automated checks pass and the user has
+  manually verified and approved the phase result.
 
 ## Quality Bar
 

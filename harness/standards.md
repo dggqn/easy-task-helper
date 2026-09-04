@@ -8,6 +8,17 @@
 - Validate inputs at boundaries and return actionable errors.
 - Keep configuration separate from business logic.
 
+## Technology Baseline
+
+- Desktop and renderer: Electron, React, and TypeScript.
+- Python: version 3.12, with `uv` for dependency and environment management.
+- Python unit tests: `pytest`.
+- Renderer unit tests: Vitest when the renderer is introduced.
+- End-to-end interaction checks: Playwright for milestone-level Electron/Web
+  workflows when the product shell is ready.
+- Do not add model or vector-database packages until their integration contract
+  is defined.
+
 ## Comments and Documentation
 
 - Comments explain why, constraints, or non-obvious behavior.
@@ -21,6 +32,20 @@
 - Verify permission boundaries and stop conditions when touched.
 - Prefer deterministic tests; isolate network and model calls behind adapters.
 - A test command and its result must be recorded for completed work.
+- Small isolated UI changes, such as one dialog or select control, require at
+  least type checking and focused unit coverage when logic is introduced.
+- A complete page or major module requires unit tests, type checking, a
+  production build, and direct interaction verification.
+- A phase requires all applicable automated evidence plus explicit user manual
+  verification and approval.
+
+## UI
+
+- Chinese is the default product language.
+- Use a concise dark industrial technology style with a chat-oriented primary
+  workflow.
+- Support common desktop window sizes and normal operating-system display
+  scaling. Avoid layout assumptions tied to one fixed resolution.
 
 ## Change Scope
 

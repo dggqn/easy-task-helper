@@ -14,6 +14,10 @@ The first visible target is a frontend Web page project. The first product
 experience should therefore make project selection, conversation, task state,
 and generated Web output easy to inspect.
 
+The fixed initial stack is Electron, React, TypeScript, Python 3.12, and `uv`.
+Use `pytest` for Python unit tests. Add Vitest for renderer unit tests and
+Playwright for milestone-level interaction checks when those layers begin.
+
 ## 2. Architecture Boundaries
 
 ### Electron desktop layer
@@ -41,7 +45,14 @@ Python owns the main development workflow:
 
 The `agnes` provider is reserved behind an adapter boundary. Do not invent its
 endpoint, authentication, request format, or model name before they are
-provided and recorded as a decision.
+ provided and recorded as a decision.
+
+## 2.1 Phase Approval Boundary
+
+Automated checks establish that a phase is ready for review; they do not close
+the phase. After the required tests, type checks, build, and direct interaction
+evidence pass, stop for the user to manually verify and explicitly approve the
+phase. Phase 1 is defined in `harness/phase-1-plan.md`.
 
 ### Knowledge and examples
 
@@ -114,6 +125,25 @@ Testing should grow with risk:
 Every completed task needs reproducible evidence. Record the exact check or
 command, its result, and any limitation. If verification fails twice for the
 same cause, stop retrying and report the evidence.
+
+For small isolated UI changes, type checking and focused unit coverage are
+usually sufficient. A page or major module also requires a production build and
+direct interaction verification. Each phase additionally requires user manual
+approval.
+
+## 6.1 Security Defaults
+
+Future project context must follow enterprise-style defaults: never include
+credentials, `.env` contents, private keys, secrets, unrelated private files,
+or raw enterprise data in source control, logs, prompts, or knowledge indexes.
+Define the data-transmission policy before configuring a real model provider.
+
+## 6.2 CI/CD Boundary
+
+GitHub Actions is required once the product shell has meaningful checks. CI
+will run relevant lint, type, unit-test, and build commands. Initial CD is
+limited to building a local desktop EXE artifact; publication and deployment
+are outside the current scope.
 
 ## 7. Change and Commit Rules
 

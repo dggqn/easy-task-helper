@@ -36,6 +36,20 @@ Stop and report when:
 - verification remains failing after the retry limit;
 - the working tree contains an unexplained conflicting change.
 
+## 5.1 Change Escalation
+
+Stop before making a change that alters architecture, dependencies, persistent
+data structures, or a user flow. State the options, impact, and recommended
+direction. Local implementation refinements that preserve those boundaries may
+proceed without interruption.
+
+## 5.2 Phase Approval
+
+A phase reaches "ready for approval" only after its defined automated checks
+and interaction evidence pass. Stop at that point for the user to manually
+verify and explicitly approve the phase. Do not begin the next phase merely
+because automated checks are green.
+
 ## 6. Milestone Progress Commits
 
 - Commit and push at milestone boundaries, not after every file edit or small

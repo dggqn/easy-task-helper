@@ -2,18 +2,18 @@
   "schema_version": 1,
   "project": "easy-task-helper",
   "phase": "phase-0-harness",
-  "task_id": "harness-bootstrap",
+  "task_id": "phase-1-execution-spec",
   "status": "completed",
-  "goal": "Establish the repository-level development harness for Codex.",
+  "goal": "Define the executable Phase 1 development contract for the minimal product shell.",
   "acceptance": [
-    "Root development rules are discoverable.",
-    "Objectives, standards, permissions, and workflow are documented.",
-    "Task state is machine-readable and handoff-ready."
+    "Technology baseline and testing tools are explicit.",
+    "Phase 1 scope and manual approval gate are explicit.",
+    "Authority, security, UI, and CI/CD boundaries are documented."
   ],
   "verified": [
-    "All harness entry, policy, workflow, state, template, and log paths exist.",
-    "task-state.json parses as valid JSON.",
-    "Git working tree contains only the intended harness additions."
+    "Phase 1 plan documents scope, exclusions, milestones, and completion evidence.",
+    "Harness rules define type, unit, build, interaction, and manual approval gates.",
+    "task-state.json is valid JSON."
   ],
   "changed_files": [
     "AGENTS.md",
@@ -26,10 +26,10 @@
     "harness/templates/acceptance.md",
     "harness/logs/.gitkeep"
   ],
-  "last_progress_commit": "eb7cc25 harness: define milestone sizing rules",
-  "last_push_status": "synchronized: origin/master matches local HEAD",
+  "last_progress_commit": "pending",
+  "last_push_status": "not_applicable",
   "retry_count": 0,
-  "next_step": "Select the first concrete product-shell task and create its acceptance checklist.",
+  "next_step": "Start Phase 1 foundation: scaffold Electron, React, and TypeScript tooling with an acceptance checklist.",
   "progress_commit_policy": "Commit and push each appropriately sized, coherent, independently verifiable milestone to origin; do not commit every small edit.",
-  "updated_at": "2026-09-04T14:29:27+08:00"
+  "updated_at": "2026-09-04T14:46:00+08:00"
 }
