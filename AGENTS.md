@@ -24,8 +24,9 @@ future product and must not be imported by application code.
 2. Write a small plan with an explicit acceptance target.
 3. Make the smallest coherent change.
 4. Run focused checks, then broader checks when the change warrants them.
-5. At a meaningful milestone, commit the verified node and push it to `origin`
-   according to `harness/workflow.md`.
+5. At an appropriately sized, verified milestone, commit the complete node and
+   push it to `origin` according to `harness/workflow.md`; do not commit every
+   small edit.
 6. Record result, changed files, commit, risks, and next step in the harness
    state/log.
 7. Stop when the acceptance target is met or a defined stop condition occurs.

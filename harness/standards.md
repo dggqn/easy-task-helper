@@ -29,11 +29,13 @@
 - Do not mix unrelated refactors, dependency upgrades, or visual redesigns.
 - Preserve user changes already present in the working tree.
 
-## Git Progress Records
+## Git Milestone Records
 
 - Commit messages use the form `<phase>: <milestone>`.
 - The commit body should summarize the completed node and verification result.
-- Keep one meaningful milestone per commit; avoid empty or narration-only
-  commits.
+- Do not create a commit for every edit. Keep one coherent milestone per
+  commit, and group supporting edits that belong to the same acceptance target.
+- Avoid milestones that are trivial implementation fragments or broad phase
+  dumps with no clear verification boundary.
 - Before pushing, confirm the commit contains only intended project changes and
   that the remote is the expected repository.

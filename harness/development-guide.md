@@ -83,8 +83,8 @@ For every concrete task:
 5. **Accept**: compare evidence with the acceptance target. A green command is
    not sufficient if the user-visible result is wrong.
 6. **Record**: update task state and write a concise durable log.
-7. **Commit**: at a meaningful verified milestone, commit with
-   `<phase>: <milestone>` and push to `origin`.
+7. **Commit**: at an appropriately sized verified milestone, commit with
+   `<phase>: <milestone>` and push to `origin`. Do not commit every edit.
 8. **Handoff**: leave a precise next step and known risks.
 
 Use `harness/templates/acceptance.md` for the acceptance record. Keep one
@@ -127,6 +127,28 @@ complete verified node, not half of a feature. Before pushing:
 
 Routine progress synchronization must never use force-push or rewrite remote
 history.
+
+### Choosing the right milestone size
+
+A good milestone is a complete slice that can be explained in one sentence,
+reviewed as one change, and verified with a focused acceptance check. It is not
+so small that the history becomes a list of implementation fragments, and not
+so large that unrelated features or unverifiable intermediate states are mixed
+together.
+
+Use these questions before committing:
+
+- Does this change meet one coherent acceptance target?
+- Can its verification evidence be listed without referring to unfinished
+  future work?
+- Would splitting it make either part independently useful and testable?
+- Would combining it with the next planned change obscure review or failure
+  diagnosis?
+
+Examples of suitable milestones include a complete project-selection flow, a
+tested Electron/Python boundary, or a working vector-retrieval slice. A single
+button, a formatting-only change, or an entire unverified product phase is not
+an appropriate milestone.
 
 ## 8. Taking Over the Project
 

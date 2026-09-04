@@ -36,12 +36,21 @@ Stop and report when:
 - verification remains failing after the retry limit;
 - the working tree contains an unexplained conflicting change.
 
-## 6. Progress Commits
+## 6. Milestone Progress Commits
 
-- At each meaningful phase milestone, create one Git commit containing that
-  node's complete, verified progress.
-- A milestone is meaningful when an acceptance target is met, a phase changes,
-  or a durable architecture/behavior decision is completed.
+- Commit and push at milestone boundaries, not after every file edit or small
+  correction.
+- A milestone is an appropriately sized, independently verifiable unit that
+  delivers a coherent slice of capability, closes a meaningful acceptance
+  target, or records a durable architecture decision.
+- A milestone should be large enough to have user or engineering value, but
+  small enough that its purpose, changed files, and verification evidence are
+  easy to review. Split a milestone when it contains unrelated outcomes; join
+  adjacent edits when they cannot be meaningfully verified alone.
+- Typical milestone examples: a complete project-selection flow, a tested
+  Python/Electron contract, or a working knowledge-retrieval slice. Non-
+  milestones include one-line fixes, formatting-only edits, and intermediate
+  scaffolding with no independently useful behavior.
 - Run the relevant checks before committing. Do not commit known failing work
   unless the task is explicitly a failure checkpoint.
 - Push the milestone commit to the configured `origin` remote after verifying
