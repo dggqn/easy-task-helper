@@ -54,6 +54,11 @@ the phase. After the required tests, type checks, build, and direct interaction
 evidence pass, stop for the user to manually verify and explicitly approve the
 phase. Phase 1 is defined in `harness/phase-1-plan.md`.
 
+Do not stop at an intermediate milestone while planned Phase 1 nodes remain.
+Milestones synchronize Git history; they are not phase termination points.
+Continue until Phase 1 reaches its complete automated acceptance gate, then
+pause only for the user's manual approval.
+
 ### Knowledge and examples
 
 The vector knowledge base and example-code library are context providers, not

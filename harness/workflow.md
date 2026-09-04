@@ -61,6 +61,11 @@ and interaction evidence pass. Stop at that point for the user to manually
 verify and explicitly approve the phase. Do not begin the next phase merely
 because automated checks are green.
 
+Intermediate milestone completion does not end the active phase. Continue to
+the next planned node until all phase acceptance targets are met and the phase
+reaches the manual-approval gate. Only then pause for the user's explicit
+manual verification and approval.
+
 ## 6. Milestone Progress Commits
 
 - Commit and push at milestone boundaries, not after every file edit or small

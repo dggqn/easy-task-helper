@@ -35,7 +35,10 @@ future product and must not be imported by application code.
    small edit.
 7. Record result, changed files, commit, risks, and next step in the harness
    state/log.
-8. Stop when the acceptance target is met or a defined stop condition occurs.
+8. Continue through all planned nodes of the active phase; do not stop merely
+   because an intermediate node is complete.
+9. Stop only when the phase reaches its manual-approval gate, or when a defined
+   blocker/stop condition requires user input.
 
 ## Escalation Boundaries
 
@@ -43,7 +46,8 @@ future product and must not be imported by application code.
   structures, or user flows.
 - Local implementation improvements that preserve those boundaries may proceed.
 - A phase is complete only after its automated checks pass and the user has
-  manually verified and approved the phase result.
+  manually verified and approved the phase result. An intermediate milestone
+  is not permission to end the phase or stop planned work.
 
 ## Quality Bar
 

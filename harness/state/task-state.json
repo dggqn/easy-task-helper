@@ -31,5 +31,6 @@
   "retry_count": 0,
   "next_step": "Start Phase 1 foundation: scaffold Electron, React, and TypeScript tooling with an acceptance checklist.",
   "progress_commit_policy": "Commit and push each appropriately sized, coherent, independently verifiable milestone to origin; do not commit every small edit.",
+  "phase_stop_policy": "Continue all planned Phase 1 nodes; pause only at the completed automated acceptance gate for explicit user manual approval, or for a defined blocker.",
   "updated_at": "2026-09-04T16:22:00+08:00"
 }
