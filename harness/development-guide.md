@@ -84,19 +84,22 @@ product layers merely to match the planned shape.
 
 For every concrete task:
 
-1. **Context**: read `AGENTS.md`, the current task state, relevant source, and
+1. **Admission**: apply `harness/admission.md`; do not start without an
+   executable goal, scope, and acceptance target.
+2. **Context**: read `AGENTS.md`, the current task state, relevant source, and
    the latest durable log.
-2. **Plan**: write the goal, scope, acceptance target, risks, and checks.
-3. **Implement**: make the smallest coherent change and preserve unrelated
+3. **Plan**: write the goal, scope, acceptance target, risks, and checks.
+4. **Implement**: make the smallest coherent change and preserve unrelated
    work.
-4. **Verify**: run focused checks first; add broader checks for shared or
+5. **Verify**: run focused checks first; add broader checks for shared or
    user-visible behavior.
-5. **Accept**: compare evidence with the acceptance target. A green command is
+6. **Accept**: apply `harness/definition-of-done.md` and compare evidence with
+   the acceptance target. A green command is
    not sufficient if the user-visible result is wrong.
-6. **Record**: update task state and write a concise durable log.
-7. **Commit**: at an appropriately sized verified milestone, commit with
+7. **Record**: update task state and write a concise durable log.
+8. **Commit**: at an appropriately sized verified milestone, commit with
    `<phase>: <milestone>` and push to `origin`. Do not commit every edit.
-8. **Handoff**: leave a precise next step and known risks.
+9. **Handoff**: leave a precise next step and known risks.
 
 Use `harness/templates/acceptance.md` for the acceptance record. Keep one
 concrete objective active at a time.

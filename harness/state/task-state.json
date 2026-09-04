@@ -2,17 +2,17 @@
   "schema_version": 1,
   "project": "easy-task-helper",
   "phase": "phase-0-harness",
-  "task_id": "phase-1-execution-spec",
+  "task_id": "harness-admission-and-completion-definition",
   "status": "completed",
-  "goal": "Define the executable Phase 1 development contract for the minimal product shell.",
+  "goal": "Document task admission and completion definitions from the agreed project rules.",
   "acceptance": [
-    "Technology baseline and testing tools are explicit.",
-    "Phase 1 scope and manual approval gate are explicit.",
-    "Authority, security, UI, and CI/CD boundaries are documented."
+    "Task admission requirements reuse the agreed product context and gates.",
+    "Completion gates distinguish small changes, modules, and phases.",
+    "Harness entry points reference both documents."
   ],
   "verified": [
-    "Phase 1 plan documents scope, exclusions, milestones, and completion evidence.",
-    "Harness rules define type, unit, build, interaction, and manual approval gates.",
+    "admission.md and definition-of-done.md document agreed rules.",
+    "AGENTS.md and development-guide.md include admission and completion steps.",
     "task-state.json is valid JSON."
   ],
   "changed_files": [
@@ -31,5 +31,5 @@
   "retry_count": 0,
   "next_step": "Start Phase 1 foundation: scaffold Electron, React, and TypeScript tooling with an acceptance checklist.",
   "progress_commit_policy": "Commit and push each appropriately sized, coherent, independently verifiable milestone to origin; do not commit every small edit.",
-  "updated_at": "2026-09-04T14:46:00+08:00"
+  "updated_at": "2026-09-04T15:10:00+08:00"
 }

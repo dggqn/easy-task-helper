@@ -25,15 +25,17 @@ future product and must not be imported by application code.
 ## Required Development Loop
 
 1. Read `harness/state/task-state.json` and the current task context.
-2. Write a small plan with an explicit acceptance target.
-3. Make the smallest coherent change.
-4. Run focused checks, then broader checks when the change warrants them.
-5. At an appropriately sized, verified milestone, commit the complete node and
+2. Apply `harness/admission.md`; stop if the task lacks an executable target.
+3. Write a small plan with an explicit acceptance target.
+4. Make the smallest coherent change.
+5. Apply `harness/definition-of-done.md` and run the checks matching the change
+   size.
+6. At an appropriately sized, verified milestone, commit the complete node and
    push it to `origin` according to `harness/workflow.md`; do not commit every
    small edit.
-6. Record result, changed files, commit, risks, and next step in the harness
+7. Record result, changed files, commit, risks, and next step in the harness
    state/log.
-7. Stop when the acceptance target is met or a defined stop condition occurs.
+8. Stop when the acceptance target is met or a defined stop condition occurs.
 
 ## Escalation Boundaries
 
@@ -58,4 +60,6 @@ future product and must not be imported by application code.
 - `harness/permissions.md`
 - `harness/workflow.md`
 - `harness/development-guide.md`
+- `harness/admission.md`
+- `harness/definition-of-done.md`
 - `harness/state/task-state.json`

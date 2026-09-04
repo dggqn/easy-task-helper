@@ -14,6 +14,9 @@ Keep it technology-neutral until an implementation decision is recorded.
 - `workflow.md`: plan, execute, verify, retry, and stop protocol.
 - `development-guide.md`: detailed architecture, lifecycle, testing, commit,
   and handoff guide.
+- `admission.md`: task entry requirements and stop-before-start conditions.
+- `definition-of-done.md`: completion gates for small changes, modules, and
+  phases.
 - `phase-1-plan.md`: executable scope and acceptance contract for the minimal
   product shell.
 - `state/task-state.json`: current task state for handoff and recovery.
