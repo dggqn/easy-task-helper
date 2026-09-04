@@ -104,6 +104,10 @@ For every concrete task:
 Use `harness/templates/acceptance.md` for the acceptance record. Keep one
 concrete objective active at a time.
 
+Task descriptions and acceptance records use Markdown files under
+`harness/tasks/`. The machine-readable JSON state is the only intentional
+exception and serves as a resumable index, not the full task record.
+
 ## 5. State and Logging
 
 `harness/state/task-state.json` is the resumable summary, not a transcript. It
@@ -114,6 +118,11 @@ Use `harness/logs/` for meaningful decisions and milestone results. A log must
 answer: what changed, why, how it was verified, what remains uncertain, and
 what should happen next. Never place credentials, tokens, or private unrelated
 data in state or logs.
+
+Keep logs detailed during an active node. After a node or phase closes, compress
+older logs while retaining the latest node result, decisions, risks, and next
+step. Keep architecture decisions separately under `harness/decisions/` so
+compression never removes their rationale.
 
 ## 6. Testing and Acceptance
 
@@ -161,6 +170,10 @@ complete verified node, not half of a feature. Before pushing:
 Routine progress synchronization must never use force-push or rewrite remote
 history.
 
+Dependency changes are recorded in `harness/dependencies/current.md` and
+`harness/dependencies/last-change.md`. After a successful dependency change,
+remove older dependency-change records and retain only those two files.
+
 ### Choosing the right milestone size
 
 A good milestone is a complete slice that can be explained in one sentence,
@@ -195,3 +208,10 @@ A new developer should start with:
 
 If state, logs, and code disagree, trust directly verified repository evidence,
 then update the harness records before continuing.
+
+## 9. Delivery Rules
+
+Before merging, use `harness/ci-policy.md`. Initial desktop delivery follows
+`harness/release-guide.md`: produce `eth-v1.0.0.exe` under
+`artifacts/desktop/eth-v1.0.0/`, retain the latest three successful versions,
+and do not publish externally.

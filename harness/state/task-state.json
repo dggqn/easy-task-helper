@@ -2,17 +2,17 @@
   "schema_version": 1,
   "project": "easy-task-helper",
   "phase": "phase-0-harness",
-  "task_id": "harness-admission-and-completion-definition",
+  "task_id": "harness-governance-completion",
   "status": "completed",
-  "goal": "Document task admission and completion definitions from the agreed project rules.",
+  "goal": "Complete the agreed governance rules for task records, decisions, dependencies, recovery, CI, logging, and local delivery.",
   "acceptance": [
-    "Task admission requirements reuse the agreed product context and gates.",
-    "Completion gates distinguish small changes, modules, and phases.",
-    "Harness entry points reference both documents."
+    "Task records and durable architecture decisions have explicit Markdown locations.",
+    "Dependency retention, build recovery, CI gates, logging, and EXE delivery are explicit.",
+    "Harness entry points reference the new governance documents."
   ],
   "verified": [
-    "admission.md and definition-of-done.md document agreed rules.",
-    "AGENTS.md and development-guide.md include admission and completion steps.",
+    "New governance documents and directory templates are present.",
+    "AGENTS.md and development-guide.md include the new rules.",
     "task-state.json is valid JSON."
   ],
   "changed_files": [
@@ -26,8 +26,8 @@
     "harness/templates/acceptance.md",
     "harness/logs/.gitkeep"
   ],
-  "last_progress_commit": "pending",
-  "last_push_status": "not_applicable",
+  "last_progress_commit": "dabefec harness: define governance and delivery policies",
+  "last_push_status": "synchronized: origin/master matches local HEAD",
   "retry_count": 0,
   "next_step": "Start Phase 1 foundation: scaffold Electron, React, and TypeScript tooling with an acceptance checklist.",
   "progress_commit_policy": "Commit and push each appropriately sized, coherent, independently verifiable milestone to origin; do not commit every small edit.",

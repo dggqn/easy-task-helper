@@ -25,6 +25,17 @@
 - Maximum automatic retries for one failing check: 2.
 - After the limit, stop and report evidence instead of looping.
 
+## 4.1 Build Failure Recovery
+
+- First diagnose the failure and identify the changed surface.
+- For simple syntax errors or a small number of localized bugs, fix the code
+  and rebuild before considering rollback.
+- If the failure is broad, involves many errors, or is caused by incompatible
+  dependencies/configuration, roll back to the last known-good version and
+  restart development from that baseline.
+- Record diagnosis, attempted repair, rollback decision, and evidence in the
+  task Markdown log.
+
 ## 5. Stop Conditions
 
 Stop and report when:

@@ -62,4 +62,10 @@ future product and must not be imported by application code.
 - `harness/development-guide.md`
 - `harness/admission.md`
 - `harness/definition-of-done.md`
+- `harness/ci-policy.md`
+- `harness/release-guide.md`
+- `harness/logging-policy.md`
+- `harness/decisions/`
+- `harness/dependencies/`
+- `harness/tasks/`
 - `harness/state/task-state.json`

@@ -1,0 +1,17 @@
+# Local build output
+dist/
+artifacts/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+
+# Generated logs and reports
+coverage/
+playwright-report/
+test-results/

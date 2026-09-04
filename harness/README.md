@@ -17,6 +17,12 @@ Keep it technology-neutral until an implementation decision is recorded.
 - `admission.md`: task entry requirements and stop-before-start conditions.
 - `definition-of-done.md`: completion gates for small changes, modules, and
   phases.
+- `decisions/`: durable architecture and major technical decisions.
+- `dependencies/`: current dependency state and the most recent change only.
+- `ci-policy.md`: required checks before code merge.
+- `release-guide.md`: local EXE naming, output, and retention rules.
+- `logging-policy.md`: detailed logging and post-node compression rules.
+- `tasks/`: Markdown records for concrete development tasks.
 - `phase-1-plan.md`: executable scope and acceptance contract for the minimal
   product shell.
 - `state/task-state.json`: current task state for handoff and recovery.
