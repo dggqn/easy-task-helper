@@ -1,18 +1,19 @@
 {
   "schema_version": 1,
   "project": "easy-task-helper",
-  "phase": "phase-0-harness",
-  "task_id": "harness-governance-completion",
-  "status": "completed",
-  "goal": "Complete the agreed governance rules for task records, decisions, dependencies, recovery, CI, logging, and local delivery.",
+  "phase": "phase-1-product-shell",
+  "task_id": "phase-1-product-shell",
+  "status": "ready_for_manual_approval",
+  "goal": "Build and verify the Electron React TypeScript product shell for frontend Web project selection and task conversation.",
   "acceptance": [
-    "Task records and durable architecture decisions have explicit Markdown locations.",
-    "Dependency retention, build recovery, CI gates, logging, and EXE delivery are explicit.",
-    "Harness entry points reference the new governance documents."
+    "User can select a placeholder frontend Web project.",
+    "User can enter a task conversation page showing project and progress.",
+    "Unit, type, build, interaction, CI, and local EXE evidence are complete before manual approval."
   ],
   "verified": [
-    "New governance documents and directory templates are present.",
-    "AGENTS.md and development-guide.md include the new rules.",
+    "Phase 1 task record exists in Markdown.",
+    "Foundation tooling and product shell checks are recorded as complete.",
+    "Local EXE exists at artifacts/desktop/eth-v1.0.0/eth-v1.0.0.exe.",
     "task-state.json is valid JSON."
   ],
   "changed_files": [
@@ -26,11 +27,11 @@
     "harness/templates/acceptance.md",
     "harness/logs/.gitkeep"
   ],
-  "last_progress_commit": "f87301e harness: define governance and delivery policies",
-  "last_push_status": "synchronized: origin/master matches local HEAD",
-  "retry_count": 0,
-  "next_step": "Start Phase 1 foundation: scaffold Electron, React, and TypeScript tooling with an acceptance checklist.",
+  "last_progress_commit": "pending",
+  "last_push_status": "not_applicable",
+  "retry_count": 1,
+  "next_step": "User manually verifies the Phase 1 flow and explicitly approves the phase.",
   "progress_commit_policy": "Commit and push each appropriately sized, coherent, independently verifiable milestone to origin; do not commit every small edit.",
   "phase_stop_policy": "Continue all planned Phase 1 nodes; pause only at the completed automated acceptance gate for explicit user manual approval, or for a defined blocker.",
-  "updated_at": "2026-09-04T16:22:00+08:00"
+  "updated_at": "2026-09-04T17:00:00+08:00"
 }

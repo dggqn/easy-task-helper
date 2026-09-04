@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  electron-quality:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: electron
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: electron/package-lock.json
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Reject tracked sensitive files
+        shell: pwsh
+        run: |
+          $blocked = git ls-files | Where-Object { $_ -match '(^|/)(\.env|.*\.pem|.*\.key)$' }
+          if ($blocked) { throw "Sensitive files are tracked: $($blocked -join ', ')" }
+      - name: Check renderer code
+        run: npm run lint
+      - name: Run renderer unit tests
+        run: npm run test
+      - name: Build renderer
+        run: npm run build
+      - name: Verify dependency lock file
+        shell: pwsh
+        run: if (-not (Test-Path package-lock.json)) { throw 'package-lock.json is required' }
