@@ -1,0 +1,20 @@
+[project]
+name = "eth-harness"
+version = "0.1.0"
+description = "Local orchestration service for Easy Task Helper."
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[project.scripts]
+eth-harness = "eth_harness.__main__:main"
+
+[dependency-groups]
+dev = ["pytest>=8.3,<9"]
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

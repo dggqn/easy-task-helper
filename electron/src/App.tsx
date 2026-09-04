@@ -22,12 +22,30 @@ function App() {
   ], [])
 
   function openProject(project: Project) { setSelectedProject(project); setMessages(initialMessages); setDraft('') }
-  function sendMessage() {
+  async function sendMessage() {
     const content = draft.trim()
     if (!content) return
     const id = Date.now()
     setMessages((current) => [...current, { id: `user-${id}`, role: 'user', content }, { id: `assistant-${id}`, role: 'assistant', content: '已记录这项任务。当前为 Phase 1 占位流程，后续将展示计划、执行和验证结果。' }])
     setDraft('')
+    try {
+      const result = await window.ethHarness?.runTask({
+        project_name: selectedProject?.name ?? '',
+        project_path: selectedProject?.path ?? '',
+        instruction: content,
+      })
+      if (!result) return
+      setMessages((current) => current.map((message) => message.id === `assistant-${id}` ? {
+        ...message,
+        content: `${result.summary}\n${result.plan.map((step, index) => `${index + 1}. ${step}`).join('\n')}`,
+      } : message))
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : 'unknown error'
+      setMessages((current) => current.map((message) => message.id === `assistant-${id}` ? {
+        ...message,
+        content: `Harness failed: ${detail}`,
+      } : message))
+    }
   }
 
   if (!selectedProject) return <main className="app-shell project-home">

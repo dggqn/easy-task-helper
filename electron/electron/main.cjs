@@ -1,7 +1,32 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
+const { execFile } = require('node:child_process')
 const path = require('node:path')
 
 const isDevelopment = !app.isPackaged
+
+function runHarnessTask(payload) {
+  if (!isDevelopment) return Promise.reject(new Error('当前安装包尚未包含 Python Harness。'))
+
+  const workspacePath = path.resolve(app.getAppPath(), '..')
+  const pythonPath = path.join(workspacePath, 'python')
+  const args = ['run', '--project', pythonPath, 'eth-harness']
+
+  return new Promise((resolve, reject) => {
+    const child = execFile('uv', args, {
+      cwd: pythonPath,
+      timeout: 30_000,
+      env: { ...process.env, PYTHONUTF8: '1' },
+    }, (error, stdout, stderr) => {
+      if (error) return reject(new Error(stderr.trim() || error.message))
+      try {
+        resolve(JSON.parse(stdout))
+      } catch {
+        reject(new Error('Python Harness 返回了无效结果。'))
+      }
+    })
+    child.stdin.end(JSON.stringify(payload))
+  })
+}
 
 function createWindow() {
   const window = new BrowserWindow({
@@ -14,6 +39,7 @@ function createWindow() {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
+      preload: path.join(__dirname, 'preload.cjs'),
     },
   })
 
@@ -25,6 +51,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  ipcMain.handle('harness:run-task', (_event, payload) => runHarnessTask(payload))
   createWindow()
 
   app.on('activate', () => {

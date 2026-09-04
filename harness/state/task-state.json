@@ -1,37 +1,37 @@
 {
   "schema_version": 1,
   "project": "easy-task-helper",
-  "phase": "phase-1-product-shell",
-  "task_id": "phase-1-product-shell",
+  "phase": "phase-2-python-harness",
+  "task_id": "phase-2-python-harness",
   "status": "ready_for_manual_approval",
-  "goal": "Build and verify the Electron React TypeScript product shell for frontend Web project selection and task conversation.",
+  "goal": "Build and verify the local Python task orchestration foundation and its Electron development bridge.",
   "acceptance": [
-    "User can select a placeholder frontend Web project.",
-    "User can enter a task conversation page showing project and progress.",
-    "Unit, type, build, interaction, CI, and local EXE evidence are complete before manual approval."
+    "A selected project and instruction produce a structured plan through the local Python Harness.",
+    "The provider is fake and replaceable while the Agnes contract remains unknown.",
+    "Python syntax/tests, Electron checks/build, CI, and direct interaction evidence are complete before manual approval."
   ],
   "verified": [
-    "Phase 1 task record exists in Markdown.",
-    "Foundation tooling and product shell checks are recorded as complete.",
-    "Local EXE exists at artifacts/desktop/eth-v1.0.0/eth-v1.0.0.exe.",
-    "task-state.json is valid JSON."
+    "Phase 1 was manually approved by the user.",
+    "Python 3.12 Harness compiles and 5 pytest cases pass.",
+    "Electron lint, 4 renderer tests, and production build pass.",
+    "Direct Electron development interaction displays the UTF-8 Chinese plan returned by the Python fake provider."
   ],
   "changed_files": [
-    "AGENTS.md",
-    "harness/README.md",
-    "harness/objectives.md",
-    "harness/standards.md",
-    "harness/permissions.md",
-    "harness/workflow.md",
-    "harness/state/task-state.json",
-    "harness/templates/acceptance.md",
-    "harness/logs/.gitkeep"
+    "python/",
+    "electron/electron/main.cjs",
+    "electron/electron/preload.cjs",
+    "electron/src/App.tsx",
+    "electron/src/eth-harness.d.ts",
+    "electron/src/App.harness.test.tsx",
+    ".github/workflows/ci.yml",
+    "harness/phase-2-plan.md",
+    "harness/tasks/2026-09-04-phase-2-python-harness.md"
   ],
-  "last_progress_commit": "28306bb phase-1: deliver product shell",
-  "last_push_status": "synchronized: origin/master matched phase-1 delivery commit",
-  "retry_count": 1,
-  "next_step": "User manually verifies the Phase 1 flow and explicitly approves the phase.",
+  "last_progress_commit": "pending phase-2 delivery commit",
+  "last_push_status": "pending: phase-2 automated acceptance is ready for synchronization",
+  "retry_count": 2,
+  "next_step": "User manually verifies the Phase 2 Python Harness conversation flow and explicitly approves the phase.",
   "progress_commit_policy": "Commit and push each appropriately sized, coherent, independently verifiable milestone to origin; do not commit every small edit.",
-  "phase_stop_policy": "Continue all planned Phase 1 nodes; pause only at the completed automated acceptance gate for explicit user manual approval, or for a defined blocker.",
-  "updated_at": "2026-09-04T16:53:19+08:00"
+  "phase_stop_policy": "Continue all planned Phase 2 nodes; pause only at the completed automated acceptance gate for explicit user manual approval, or for a defined blocker.",
+  "updated_at": "2026-09-04T17:28:55+08:00"
 }

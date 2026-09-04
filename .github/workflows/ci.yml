@@ -34,3 +34,23 @@ jobs:
       - name: Verify dependency lock file
         shell: pwsh
         run: if (-not (Test-Path package-lock.json)) { throw 'package-lock.json is required' }
+
+  python-quality:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+      - name: Install locked dependencies
+        run: uv sync --locked --dev
+      - name: Check Python syntax
+        run: uv run python -m compileall -q src
+      - name: Run Python unit tests
+        run: uv run pytest
+      - name: Verify dependency lock file
+        shell: pwsh
+        run: if (-not (Test-Path uv.lock)) { throw 'uv.lock is required' }

@@ -41,3 +41,18 @@ Acceptance targets:
   begins.
 
 Implementation details and the task breakdown are in `phase-1-plan.md`.
+
+## Phase 2: Python Harness Foundation
+
+Goal: deliver a local Python task workflow whose deterministic fake provider
+returns a structured, reviewable plan to the Electron conversation page.
+
+Acceptance targets:
+
+- The Python service validates task input and records lifecycle events.
+- The provider is replaceable without assuming the Agnes API contract.
+- Electron invokes the local Python boundary and displays a Chinese plan.
+- Python and Electron checks pass, including direct local interaction.
+- The user manually verifies and explicitly approves Phase 2.
+
+Implementation details and the task breakdown are in `phase-2-plan.md`.
