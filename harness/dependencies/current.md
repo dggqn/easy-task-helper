@@ -1,0 +1,15 @@
+# Current Dependencies
+
+No product dependencies have been selected beyond the Phase 1 tooling baseline:
+
+- Electron
+- React
+- TypeScript
+- Python 3.12
+- `uv`
+- `pytest`
+- Vitest (when renderer tests are introduced)
+- Playwright (when milestone interaction checks are introduced)
+
+Update this file whenever the effective dependency set changes. Keep versions
+in actual lock files and package manifests once product scaffolding starts.
