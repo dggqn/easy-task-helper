@@ -36,4 +36,3 @@ request contract are supplied.
 - A JSON request produces a structured completed task result.
 - Repository CI runs the Python checks alongside Electron checks.
 - User manually verifies and explicitly approves Phase 2.
-

@@ -33,4 +33,3 @@ class FakeModelProvider:
                 "生成变更建议并执行对应验证。",
             ),
         )
-

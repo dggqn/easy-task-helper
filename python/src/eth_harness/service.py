@@ -39,4 +39,3 @@ class TaskService:
             raise ValueError("project_path 不能为空")
         if not request.instruction.strip():
             raise ValueError("instruction 不能为空")
-

@@ -33,4 +33,3 @@ def test_run_returns_a_completed_reviewable_plan() -> None:
 def test_run_rejects_required_blank_fields(field: str) -> None:
     with pytest.raises(ValueError):
         TaskService().run(make_request(**{field: "  "}))
-

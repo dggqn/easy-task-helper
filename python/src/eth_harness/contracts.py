@@ -45,4 +45,3 @@ class TaskResult:
         """Keep serialization at the boundary so core code stays typed."""
 
         return asdict(self)
-

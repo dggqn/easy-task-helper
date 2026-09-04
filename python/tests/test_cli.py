@@ -21,4 +21,3 @@ def test_cli_returns_json_for_a_valid_request() -> None:
     result = json.loads(completed.stdout)
     assert result["stage"] == "completed"
     assert result["plan"][0] == "分析需求：增加状态筛选"
-
