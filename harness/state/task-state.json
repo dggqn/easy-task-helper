@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "project": "easy-task-helper",
+  "phase": "phase-0-harness",
+  "task_id": "harness-bootstrap",
+  "status": "completed",
+  "goal": "Establish the repository-level development harness for Codex.",
+  "acceptance": [
+    "Root development rules are discoverable.",
+    "Objectives, standards, permissions, and workflow are documented.",
+    "Task state is machine-readable and handoff-ready."
+  ],
+  "verified": [
+    "All harness entry, policy, workflow, state, template, and log paths exist.",
+    "task-state.json parses as valid JSON.",
+    "Git working tree contains only the intended harness additions."
+  ],
+  "changed_files": [
+    "AGENTS.md",
+    "harness/README.md",
+    "harness/objectives.md",
+    "harness/standards.md",
+    "harness/permissions.md",
+    "harness/workflow.md",
+    "harness/state/task-state.json",
+    "harness/templates/acceptance.md",
+    "harness/logs/.gitkeep"
+  ],
+  "retry_count": 0,
+  "next_step": "Select the first concrete product-shell task and create its acceptance checklist.",
+  "progress_commit_policy": "Commit and push each meaningful verified milestone to origin.",
+  "updated_at": "2026-09-04T14:24:00+08:00"
+}
