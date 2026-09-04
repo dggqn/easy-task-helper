@@ -44,4 +44,5 @@ future product and must not be imported by application code.
 - `harness/standards.md`
 - `harness/permissions.md`
 - `harness/workflow.md`
+- `harness/development-guide.md`
 - `harness/state/task-state.json`

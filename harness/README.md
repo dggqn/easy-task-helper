@@ -12,6 +12,8 @@ Keep it technology-neutral until an implementation decision is recorded.
 - `standards.md`: implementation, documentation, and verification rules.
 - `permissions.md`: workspace authority and external-side-effect boundaries.
 - `workflow.md`: plan, execute, verify, retry, and stop protocol.
+- `development-guide.md`: detailed architecture, lifecycle, testing, commit,
+  and handoff guide.
 - `state/task-state.json`: current task state for handoff and recovery.
 - `templates/acceptance.md`: acceptance checklist for each concrete task.
 - `logs/`: durable execution notes; one Markdown file per meaningful task.
