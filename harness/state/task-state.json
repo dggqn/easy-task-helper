@@ -26,10 +26,10 @@
     "harness/templates/acceptance.md",
     "harness/logs/.gitkeep"
   ],
-  "last_progress_commit": "dabefec harness: define governance and delivery policies",
+  "last_progress_commit": "f87301e harness: define governance and delivery policies",
   "last_push_status": "synchronized: origin/master matches local HEAD",
   "retry_count": 0,
   "next_step": "Start Phase 1 foundation: scaffold Electron, React, and TypeScript tooling with an acceptance checklist.",
   "progress_commit_policy": "Commit and push each appropriately sized, coherent, independently verifiable milestone to origin; do not commit every small edit.",
-  "updated_at": "2026-09-04T15:10:00+08:00"
+  "updated_at": "2026-09-04T16:22:00+08:00"
 }
