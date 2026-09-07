@@ -19,7 +19,7 @@ request contract are supplied.
 ## Exclusions
 
 - Real Agnes API calls, credentials, or assumed request format.
-- Electron UI flow changes or Electron-to-Python live IPC.
+- Packaged Electron-to-Python runtime distribution.
 - Project filesystem mutation, code generation, vector retrieval, and CI/CD
   execution against a selected user project.
 
