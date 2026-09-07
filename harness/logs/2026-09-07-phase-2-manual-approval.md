@@ -13,3 +13,9 @@ request; no Phase 3 work may begin until the user explicitly resumes it.
 
 The local development bridge requires `uv` and Python 3.12. The packaged EXE
 does not yet bundle the Python Harness.
+
+## Synchronization
+
+The local approval commit `84a3c29` was created successfully. Its initial
+push to `origin/master` timed out while connecting to `github.com:443`; no
+history was rewritten. Retry the normal push when connectivity is available.
