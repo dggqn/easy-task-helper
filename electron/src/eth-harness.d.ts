@@ -12,5 +12,6 @@ interface Window {
       project_path: string
       instruction: string
     }): Promise<HarnessTaskResult>
+    runAction?(payload: Record<string, unknown>): Promise<Record<string, unknown>>
   }
 }

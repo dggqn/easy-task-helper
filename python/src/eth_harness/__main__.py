@@ -6,6 +6,7 @@ import sys
 from .contracts import TaskRequest
 from .service import TaskService
 from .storage import TaskStore, default_database_path
+from .execution import inspect_project, run_allowed_command
 
 
 def main() -> int:
@@ -13,6 +14,15 @@ def main() -> int:
 
     try:
         payload = json.load(sys.stdin)
+        action = payload.get("action", "task")
+        if action == "inspect":
+            result = inspect_project(payload["workspace"], payload.get("target", "."))
+            print(json.dumps(result.__dict__, ensure_ascii=False))
+            return 0
+        if action == "run-command":
+            result = run_allowed_command(payload["name"], payload["workspace"], int(payload.get("timeout_seconds", 30)))
+            print(json.dumps(result.__dict__, ensure_ascii=False))
+            return 0
         request = TaskRequest(
             project_name=str(payload["project_name"]),
             project_path=str(payload["project_path"]),

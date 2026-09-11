@@ -17,6 +17,7 @@ function App() {
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [draft, setDraft] = useState('')
   const [isPanelOpen, setIsPanelOpen] = useState(false)
+  const [actionResult, setActionResult] = useState('')
   const progress = useMemo(() => [
     { label: '需求解析', state: '完成' }, { label: '执行计划', state: '进行中' }, { label: '代码验证', state: '等待' },
   ], [])
@@ -48,6 +49,15 @@ function App() {
     }
   }
 
+  async function runAction(action: Record<string, unknown>) {
+    try {
+      const result = await window.ethHarness?.runAction?.({ ...action, workspace: selectedProject?.path ?? '' })
+      setActionResult(JSON.stringify(result ?? {}, null, 2))
+    } catch (error) {
+      setActionResult(error instanceof Error ? error.message : '执行失败')
+    }
+  }
+
   if (!selectedProject) return <main className="app-shell project-home">
     <header className="topbar"><div className="brand" aria-label="Easy Task Helper"><span className="brand-mark">ETH</span><span>Easy Task Helper</span></div><span className="phase-badge">PHASE 1 / 本地工作台</span></header>
     <section className="project-intro"><p className="eyebrow">DEVELOPMENT ASSISTANT</p><h1>选择要继续开发的 Web 项目</h1><p>从本地项目开始，进入任务对话与执行进度工作台。</p></section>
@@ -58,6 +68,11 @@ function App() {
   </main>
 
   return <main className="app-shell task-home">
+    <div style={{ position: 'fixed', right: 24, bottom: 24, zIndex: 5, display: 'flex', gap: 8 }}>
+      <button type="button" onClick={() => runAction({ action: 'inspect' })}>检查项目</button>
+      <button type="button" onClick={() => runAction({ action: 'run-command', name: 'python-tests' })}>运行测试</button>
+      {actionResult && <pre style={{ maxWidth: 420, maxHeight: 180, overflow: 'auto' }}>{actionResult}</pre>}
+    </div>
     <header className="topbar"><button className="back-button" type="button" onClick={() => setSelectedProject(null)}><span aria-hidden="true">&lt;-</span> 项目列表</button><div className="brand compact"><span className="brand-mark">ETH</span><span>任务工作台</span></div><button className="outline-button" type="button" onClick={() => setIsPanelOpen((open) => !open)}>{isPanelOpen ? '收起进度' : '查看进度'}</button></header>
     <div className="task-layout">
       <aside className={`project-sidebar ${isPanelOpen ? 'expanded' : ''}`}><p className="eyebrow">CURRENT PROJECT</p><h2>{selectedProject.name}</h2><p className="side-framework">{selectedProject.framework}</p><code>{selectedProject.path}</code><div className="side-divider"></div><p className="side-label">当前任务</p><strong>建立项目功能开发计划</strong><p className="side-copy">占位任务状态，用于验证对话和执行进度流程。</p></aside>

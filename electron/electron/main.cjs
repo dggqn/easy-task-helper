@@ -28,6 +28,20 @@ function runHarnessTask(payload) {
   })
 }
 
+function runHarnessAction(payload) {
+  if (!isDevelopment) return Promise.reject(new Error('安装包暂未内置 Python Harness。'))
+  const workspacePath = path.resolve(app.getAppPath(), '..')
+  const pythonPath = path.join(workspacePath, 'python')
+  const safePayload = { ...payload, workspace: workspacePath }
+  return new Promise((resolve, reject) => {
+    const child = execFile('uv', ['run', '--project', pythonPath, 'eth-harness'], { cwd: pythonPath, timeout: 30_000, env: { ...process.env, PYTHONUTF8: '1' } }, (error, stdout, stderr) => {
+      if (error) return reject(new Error(stderr.trim() || error.message))
+      try { resolve(JSON.parse(stdout)) } catch { reject(new Error('Python Harness 返回了无效结果。')) }
+    })
+    child.stdin.end(JSON.stringify(safePayload))
+  })
+}
+
 function createWindow() {
   const window = new BrowserWindow({
     width: 1360,
@@ -52,6 +66,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
   ipcMain.handle('harness:run-task', (_event, payload) => runHarnessTask(payload))
+  ipcMain.handle('harness:action', (_event, payload) => runHarnessAction(payload))
   createWindow()
 
   app.on('activate', () => {
