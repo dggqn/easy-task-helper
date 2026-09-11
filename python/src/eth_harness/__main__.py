@@ -5,6 +5,7 @@ import sys
 
 from .contracts import TaskRequest
 from .service import TaskService
+from .storage import TaskStore, default_database_path
 
 
 def main() -> int:
@@ -17,7 +18,7 @@ def main() -> int:
             project_path=str(payload["project_path"]),
             instruction=str(payload["instruction"]),
         )
-        print(json.dumps(TaskService().run(request).to_dict(), ensure_ascii=False))
+        print(json.dumps(TaskService(store=TaskStore(default_database_path())).run(request).to_dict(), ensure_ascii=False))
         return 0
     except (KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
         print(json.dumps({"error": str(error)}, ensure_ascii=False), file=sys.stderr)
